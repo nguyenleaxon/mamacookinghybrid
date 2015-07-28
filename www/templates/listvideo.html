@@ -1,0 +1,25 @@
+<ion-view view-title="Videos">
+    <ion-content>
+      <!--  <ion-list>
+            <ion-item ng-repeat="item in videos">
+               <div ng-click="showVideo(item)"> {{item}}</div>
+            </ion-item>
+        </ion-list>-->
+        <ion-list>
+            <ion-item collection-repeat="list in _list" class="item-thumbnail-left">
+                <img ng-src="{{list.image}}">
+                <h2>{{list.name}}</h2>
+                <p>{{list.address}}</p>
+                <p>{{list.phone}}</p>
+                <div ng-click="showVideo(list.name)"> {{list.name}}</div>
+            </ion-item>
+        </ion-list>
+
+        <ion-infinite-scroll
+                ng-if="canWeLoadMoreContent()"
+                on-infinite="populateList()"
+                icon="ion-loading-c"
+                distance="1%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

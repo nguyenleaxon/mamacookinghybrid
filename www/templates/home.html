@@ -1,0 +1,18 @@
+<ion-view view-title="Cooking" >
+  <ion-content>
+
+      <div class="row unlimited-items">
+          <div class="col" ng-repeat="category in categories">
+  <!--            <div ng-click="getAllVideosByCat(item)">
+                <img ng-src="{{item}}" width="100px" height="100px">
+              </div>-->
+              <div>{{category.name}}</div>
+              <div>{{category.description}}</div>
+              <img ng-src="{{category.imagePath}}" width="100px" height="100px">
+          </div>
+      </div>
+
+
+
+  </ion-content>
+</ion-view>

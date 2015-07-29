@@ -8,7 +8,7 @@
               </div>-->
               <div>{{category.name}}</div>
               <div>{{category.description}}</div>
-              <img ng-src="{{category.imagePath}}" width="100px" height="100px">
+              <img ng-click="getAllVideoByCategory(category.id)" ng-src="{{category.imagePath}}" width="100px" height="100px">
           </div>
       </div>
 

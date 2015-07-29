@@ -16,4 +16,15 @@ var home = angular.module('home',[])
         }, function (data) {
             console.log("DATA " + data);
         });
+
+        $scope.getAllVideoByCategory = function(categoryID) {
+
+            HomeService.getAllVideosByCat(categoryID).then(function (response) {
+                $scope.videos = response.data;
+                $ionicLoading.hide();
+            }, function (data) {
+                console.log("Video DATA " + data);
+            });
+
+        }
     }])

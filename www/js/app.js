@@ -14,7 +14,8 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad'])
         });
     })
 
-    .config(function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
+    .config(function ($stateProvider, $urlRouterProvider,$httpProvider,$ocLazyLoadProvider) {
+
         $stateProvider
             .state('app', {
                 url: "/app",

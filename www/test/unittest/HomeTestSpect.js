@@ -1,9 +1,19 @@
 'use strict'
 
-console.log("FOUND THE TEST");
-describe('javascript', function() {
-    console.log("TEST JS");
-    it('should know 2 + 2 is 4', function() {
-        expect(2 + 2).toEqual(4);
+describe('Hello World example', function() {
+
+    beforeEach(module('home'));
+
+    var HomeController,
+        scope;
+
+    beforeEach(inject(function ($rootScope, $controller) {
+        scope = $rootScope.$new();
+        HomeController = $controller('HomeController', {
+            $scope: scope
+        });
+    }));
+    it('says hello world!', function () {
+        expect(scope.greeting).toEqual("Hello world!");
     });
 });

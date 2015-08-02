@@ -6,12 +6,10 @@
             </ion-item>
         </ion-list>-->
         <ion-list>
-            <ion-item collection-repeat="list in _list" class="item-thumbnail-left">
-                <img ng-src="{{list.image}}">
-                <h2>{{list.name}}</h2>
-                <p>{{list.address}}</p>
-                <p>{{list.phone}}</p>
-                <div ng-click="showVideo(list.name)"> {{list.name}}</div>
+            <ion-item collection-repeat="video in videos" class="item-thumbnail-left">
+           <!--     <img ng-src="{{}}">-->
+                <h2>{{video.name}}</h2>
+              <!--  <div ng-click="showVideo(list.name)"> {{list.name}}</div>-->
             </ion-item>
         </ion-list>
 

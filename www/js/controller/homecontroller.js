@@ -10,20 +10,26 @@ var home = angular.module('home',[])
             showDelay: 1000
         });
 
-        HomeService.getAllCategories().then(function (response) {
+        HomeService.getAllCategories().then(
+           function (response) {
             $scope.categories = response.data;
             $ionicLoading.hide();
         }, function (data) {
+                alert("Connection Fail")
+                $ionicLoading.hide();
             console.log("DATA " + data);
         });
 
-        $scope.getAllVideoByCategory = function(categoryID) {
+        $scope.getAllVideoByCategoryFirstTime = function(categoryID) {
 
-            HomeService.getAllVideosByCat(categoryID).then(function (response) {
+            HomeService.getAllVideoByCategoryFirstTime(categoryID).then(
+             function (response) {
                 $scope.videos = response.data;
+                console.log("TYPE" + $scope.videos);
                 $ionicLoading.hide();
+                $state.go('app.listvideo', {'video': angular.toJson($scope.videos)});
             }, function (data) {
-                console.log("Video DATA " + data);
+                // Handle error here
             });
 
         }

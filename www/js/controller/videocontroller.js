@@ -1,8 +1,46 @@
 var video = angular.module('video', [])
 
-    .controller('VideoCtrl',["$scope","$state","$stateParams" ,function ($scope,$state,$stateParams) {
-        $scope.videos = angular.fromJson($stateParams.video);
-        console.log("video controller" + $scope.videos);
+    .controller('VideoCtrl',["$scope","$state","$stateParams","SessionManagerService",function ($scope,$state,$stateParams,SessionManagerService) {
+        var categoryID = $stateParams.categoryID;
+        var isCategoryStoreInSession = SessionManagerService.isCategoryStoreInSession(categoryID);
+        var vdie = angular.fromJson($stateParams.video);
+        $scope._videos = [];
+        if (isCategoryStoreInSession) {
+
+        } else {
+            $scope._videos = angular.fromJson($stateParams.video);
+
+            console.log($scope._videos);
+        }
+
+
+
+
+        $scope.loadMoreVideo = function() {
+           /* $http.get('/more-items').success(function(items) {
+                $scope.$broadcast('scroll.infiniteScrollComplete');
+            });*/
+            console.log("load more");
+            for(var x in vdie){
+                $scope._videos.push(vdie[x]);
+            }
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        };
+
+        $scope.canWeLoadMoreVideo = function() {
+            return ($scope._videos.length == 20) ? false : true;
+        }
+
+
+
+      /*  $scope.videos = angular.fromJson($stateParams.video);
+         console.log("video controller" + $scope.videos);
+         $scope.playVideo = function(url) {
+         YoutubeVideoPlayer.openVideo('3Yw6nF9W_4g');
+         //  YoutubeVideoPlayer.openVideo('YOUTUBE_VIDEO_ID');
+         }*/
+
+
     }])
 
     .controller('VideoCtrlPaginate', function ($scope, $stateParams,$state) {
@@ -45,12 +83,7 @@ var video = angular.module('video', [])
 
         $scope.populateList();
 
-        $scope.showVideo = function (videoID) {
-            $state.go('app.showvideo', {'videoID': "11"});
-        }
 
-        $scope.playVideo = function(url) {
-           YoutubeVideoPlayer.openVideo('3Yw6nF9W_4g');
-          //  YoutubeVideoPlayer.openVideo('YOUTUBE_VIDEO_ID');
-        }
+
+
     })

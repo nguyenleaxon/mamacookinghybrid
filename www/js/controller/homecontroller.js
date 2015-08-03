@@ -27,7 +27,7 @@ var home = angular.module('home',[])
                 $scope.videos = response.data;
                 console.log("TYPE" + $scope.videos);
                 $ionicLoading.hide();
-                $state.go('app.listvideo', {'video': angular.toJson($scope.videos)});
+                $state.go('app.listvideo', {'video': angular.toJson($scope.videos),'categoryID':categoryID});
             }, function (data) {
                 // Handle error here
             });

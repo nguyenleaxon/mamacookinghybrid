@@ -1,4 +1,4 @@
-angular.module('mamacooking', ['ionic', 'oc.lazyLoad'])
+angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -14,7 +14,10 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad'])
         });
     })
 
-    .config(function ($stateProvider, $urlRouterProvider,$httpProvider,$ocLazyLoadProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $ocLazyLoadProvider, localStorageServiceProvider) {
+        localStorageServiceProvider.setPrefix('mamacooking')
+            .setStorageType('sessionStorage')
+            .setNotify(true, true);
 
         $stateProvider
             .state('app', {
@@ -46,7 +49,7 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad'])
                 }
             })
             .state('app.listvideo', {
-                url: "/listvideo?video",
+                url: "/listvideo?video&:categoryID",
                 views: {
                     'menuContent': {
                         templateUrl: "templates/listvideo.html",
@@ -62,6 +65,10 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad'])
                             {
                                 name: 'video',
                                 files: ['js/service/videoservices.js']
+                            },
+                            {
+                                name: 'sessionmanager',
+                                files: ['js/helper/sessionmanager.js']
                             }
 
                         ]);

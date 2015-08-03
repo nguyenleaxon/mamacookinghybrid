@@ -20,7 +20,7 @@ var home = angular.module('home',[])
             console.log("DATA " + data);
         });
 
-        $scope.getAllVideoByCategoryFirstTime = function(categoryID) {
+        /*$scope.getAllVideoByCategoryFirstTime = function(categoryID) {
 
             HomeService.getAllVideoByCategoryFirstTime(categoryID).then(
              function (response) {
@@ -32,5 +32,11 @@ var home = angular.module('home',[])
                 // Handle error here
             });
 
+        }*/
+
+        $scope.displayVideos = function (categoryID) {
+            $state.go('app.listvideo', {'categoryID':categoryID});
         }
+
+
     }])

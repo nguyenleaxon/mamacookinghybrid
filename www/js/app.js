@@ -49,7 +49,7 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule'])
                 }
             })
             .state('app.listvideo', {
-                url: "/listvideo?video&:categoryID",
+                url: "/listvideo?:categoryID",
                 views: {
                     'menuContent': {
                         templateUrl: "templates/listvideo.html",

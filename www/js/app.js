@@ -77,11 +77,11 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule'])
             })
 
             .state('app.showvideo', {
-                url: "/showvideo/{videoID:string}",
+                url: "/showvideo/?video}",
                 views: {
                     'menuContent': {
                         templateUrl: "templates/showvideo.html",
-                        controller: 'VideoCtrl'
+                        controller: 'VideoDetailsCtrl'
                     }
                 }
             })

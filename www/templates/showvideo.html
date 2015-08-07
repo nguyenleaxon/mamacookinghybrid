@@ -1,7 +1,13 @@
 <ion-view view-title="Video">
     <ion-content>
 
-        <a href="#" ng-click="playVideo('https://www.youtube.com/watch?v=KDolwRXMsss')">Play HTTP</a><p/>
-        <a href="#" ng-click="playVideo('https://www.youtube.com/watch?v=KDolwRXMsss')">Play File</a><p/>
+        <h1> ID :{{video.id}}</h1>
+        <h1> Name : {{video.name}}</h1>
+        <button class="button button-balanced" ng-click="playVideo(video.url)">
+            Watch
+        </button>
+        <button class="button button-balanced">
+            Add Favourist
+        </button>
     </ion-content>
 </ion-view>

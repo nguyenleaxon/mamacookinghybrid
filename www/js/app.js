@@ -14,7 +14,7 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule'])
         });
     })
 
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $ocLazyLoadProvider, localStorageServiceProvider) {
+    .config(function ($stateProvider,$urlRouterProvider, $httpProvider, $ocLazyLoadProvider,localStorageServiceProvider) {
         localStorageServiceProvider.setPrefix('mamacooking')
             .setStorageType('sessionStorage')
             .setNotify(true, true);

@@ -6,18 +6,28 @@ angular.module("sessionmanager", [])
 
         }
 
-        this.storeVideoInSession = function(categoryID,videos,skip,total) {
-            var videoSession = {};
-            videoSession._skip = skip;
-            videoSession._total = total;
-            videoSession._videos = videos;
-            localStorageService.set(categoryID,videoSession);
+        this.storeVideoInSession = function(categoryID,value) {
+            var video ={};
+            video.noMoreItemsAvailable = value.noMoreItemsAvailable;
+            video.videos = value.videos;
+            video.firstTime = value.firstTime;
+            video.skip = value.skip;
+            video.total = value.total;
+            localStorageService.set(categoryID,video);
 
         }
 
-        this.getPlaceBySession = function(categoryID) {
+        this.getVideoBySession = function(categoryID) {
             return localStorageService.get(categoryID);
 
+        }
+
+        this.addVideoToFavourist = function(video) {
+            //push array
+        }
+
+        this.getAllVideoFromFavourist = function() {
+            return localStorageService.get("favorist");
         }
 
     }

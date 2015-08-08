@@ -3,47 +3,61 @@ var video = angular.module('video',[])
     .controller('VideoCtrl',["$scope","$state","$stateParams","SessionManagerService","VideoService",function ($scope,$state,$stateParams,SessionManagerService,VideoService) {
         var categoryID = $stateParams.categoryID;
         var isCategoryStoreInSession = SessionManagerService.isCategoryStoreInSession(categoryID);
+        var value = {};
 
-        $scope._videos = [];
-        var _skip = 0;
-        var _total = 0;
         if (isCategoryStoreInSession) {
-
+            value = SessionManagerService.getVideoBySession(categoryID);
+            $scope._videos = value.videos;
         } else {
-           VideoService.getAllVideoByCategoryFirstTime(categoryID).then(
+            value.videos = [];
+            value.firstTime = true;
+            value.skip = 0;
+            value.total = 0;
+            setTimeout(function () {
+            VideoService.getAllVideoByCategoryFirstTime(categoryID).then(
                 function (response) {
-                    var videos = response.data;
-                    for(var x in videos){
-                        $scope._videos.push(videos[x]);
-                        _total = videos[x].total;
+                    var videoResponse = response.data;
+                    var totalResponse;
+                    for(var x in videoResponse){
+                        value.videos.push(videoResponse[x]);
+                        totalResponse = videoResponse[x].total;
                     }
+                    $scope._videos = value.videos;
+                    value.skip = +5;
+                    value.total = totalResponse;
+                    SessionManagerService.storeVideoInSession(categoryID,value);
                 }, function (data) {
-                    // Handle error here
+                    alert("Server Error !!! Can not get video first time");
                 });
-            _skip =+ 5;
-            console.log($scope._videos);
+            }, 3000);
         }
 
         $scope.loadMoreVideo = function() {
             console.log("load more");
-            _skip =+5;
-            VideoService.getAllVideoByCategory(categoryID,_skip).then(
+            setTimeout(function () {
+            VideoService.getAllVideoByCategory(categoryID,value.skip).then(
                 function (response) {
-                    var videos = response.data;
-                    for(var x in videos){
-                        $scope._videos.push(videos[x]);
+                    var videoResponse = response.data;
+                    for(var x in videoResponse){
+                        value.videos.push(videoResponse[x]);
                     }
-
+                    $scope._videos = value.videos;
+                    value.skip = value.skip + 5;
+                    SessionManagerService.storeVideoInSession(categoryID,value);
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
                 }, function (data) {
-                    // Handle error here
+                   alert("server error");
                 });
-            //SessionManagerService.
-
-            $scope.$broadcast('scroll.infiniteScrollComplete');
+            }, 3000);
         };
 
         $scope.canWeLoadMoreVideo = function() {
-            return ($scope._videos.length < _total) ? false : true;
+           return (value.videos.length < value.total) ? true : false;
+          /*  if (value.videos.length == value.total) {
+                return false;
+            } else {
+                return true;
+            }*/
         }
 
 

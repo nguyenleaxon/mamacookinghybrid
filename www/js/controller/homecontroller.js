@@ -38,5 +38,8 @@ var home = angular.module('home',[])
             $state.go('app.listvideo', {'categoryID':categoryID});
         }
 
-
+        $scope.exitApp = function() {
+            alert("exit");
+            ionic.Platform.exitApp();
+        }
     }])

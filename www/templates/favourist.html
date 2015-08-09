@@ -1,5 +1,14 @@
-<ion-view view-title="Favourist">
-    <ion-content>
-        <h1>Favourist</h1>
+<ion-view view-title="Favorist" ng-controller="VideoFavoristCtrl">
+    <ion-content  overflow-scroll="true" >
+        <ion-list>
+            <ion-item collection-repeat="video in _videos" class="item-thumbnail-left">
+                <img ng-src="http:{{video.image}}">
+                <h2>{{video.name}}</h2>
+                <button class="button button-balanced" ng-click="playFavoristVideo(video.url)">
+                    Watch it
+                </button>
+                <!-- <div ng-click="playVideo(video.name)"> Click To See </div>-->
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>

@@ -1,32 +1,34 @@
 angular.module("sessionmanager", [])
-    .service("SessionManagerService", function ($log,localStorageService) {
+    .service("SessionManagerService", function ($log, localStorageService) {
 
-        this.isCategoryStoreInSession = function (key){
-            return localStorageService.get(key) == null ? false:true;
+        this.isCategoryStoreInSession = function (key) {
+            return localStorageService.get(key) == null ? false : true;
 
         }
 
-        this.storeVideoInSession = function(categoryID,value) {
-            var video ={};
+        this.storeVideoInSession = function (categoryID, value) {
+            var video = {};
             video.noMoreItemsAvailable = value.noMoreItemsAvailable;
             video.videos = value.videos;
             video.firstTime = value.firstTime;
             video.skip = value.skip;
             video.total = value.total;
-            localStorageService.set(categoryID,video);
+            localStorageService.set(categoryID, video);
 
         }
 
-        this.getVideoBySession = function(categoryID) {
+        this.getVideoBySession = function (categoryID) {
             return localStorageService.get(categoryID);
 
         }
 
-        this.addVideoToFavourist = function(video) {
-            //push array
+        this.addVideoToFavourist = function (value) {
+            var video = {};
+            video.videos = value.videos;
+            localStorageService.set("favorist", video);
         }
 
-        this.getAllVideoFromFavourist = function() {
+        this.getAllVideoFromFavourist = function () {
             return localStorageService.get("favorist");
         }
 

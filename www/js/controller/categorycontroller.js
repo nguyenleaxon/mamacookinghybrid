@@ -14,6 +14,4 @@ var category = angular.module('CategoryModule', [])
         ];
 
 
-
-
     })

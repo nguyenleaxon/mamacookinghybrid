@@ -1,6 +1,6 @@
 video.service('VideoService', function ($http, $log) {
 
-    this.getAllVideoByCategory = function (categoryID,skip) {
+    this.getAllVideoByCategory = function (categoryID, skip) {
         var requestVideo = {};
         requestVideo.categoryID = categoryID;
         requestVideo.skip = skip;
@@ -8,7 +8,7 @@ video.service('VideoService', function ($http, $log) {
         var promise = $http({
             method: 'POST',
             url: 'http://192.168.1.5:3000/getAllVideoByCategory',
-            data:requestVideo
+            data: requestVideo
         }).success(function (data) {
 
         }).error(function (data, status, headers, config) {
@@ -18,7 +18,7 @@ video.service('VideoService', function ($http, $log) {
         return promise;
     }
 
-    this.getAllVideoByCategoryFirstTime = function(categoryID) {
+    this.getAllVideoByCategoryFirstTime = function (categoryID) {
 
         var requestVideo = {};
         requestVideo.categoryID = categoryID;
@@ -27,7 +27,7 @@ video.service('VideoService', function ($http, $log) {
         var promise = $http({
             method: 'POST',
             url: 'http://192.168.1.5:3000/getAllVideoFirstTime',
-            data:requestVideo
+            data: requestVideo
         }).success(function (data) {
 
         }).error(function (data, status, headers, config) {

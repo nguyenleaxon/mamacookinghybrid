@@ -1,6 +1,6 @@
-var home = angular.module('home',[])
+var home = angular.module('home', [])
 
-    .controller('HomeCtrl',['$scope','$state','$ionicLoading','HomeService',function ($scope,$state,$ionicLoading,HomeService) {
+    .controller('HomeCtrl', ['$scope', '$state', '$ionicLoading', 'HomeService', function ($scope, $state, $ionicLoading, HomeService) {
 
         $scope.loading = $ionicLoading.show({
             content: '<i class="icon ion-loading-c"></i>',
@@ -11,23 +11,28 @@ var home = angular.module('home',[])
         });
 
         HomeService.getAllCategories().then(
-           function (response) {
-            $scope.categories = response.data;
-            $ionicLoading.hide();
-        }, function (data) {
+            function (response) {
+                $scope.categories = response.data;
+                $ionicLoading.hide();
+            }, function (data) {
                 alert("Connection Fail")
                 $ionicLoading.hide();
-            console.log("DATA " + data);
-        });
-
+                console.log("DATA " + data);
+            });
 
 
         $scope.displayVideos = function (categoryID) {
-            $state.go('app.listvideo', {'categoryID':categoryID});
+            $state.go('app.listvideo', {'categoryID': categoryID});
         }
 
-        $scope.exitApp = function() {
+        $scope.exitApp = function () {
             alert("exit");
             ionic.Platform.exitApp();
         }
+
+        $scope.gotoVideoFavorsit = function() {
+            alert("here");
+          //  $state.go('app.favourist');
+        }
+
     }])

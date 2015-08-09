@@ -1,4 +1,4 @@
-<ion-view view-title="Video">
+<ion-view view-title="Video" >
     <ion-content>
 
         <h1> ID :{{video.id}}</h1>
@@ -6,7 +6,7 @@
         <button class="button button-balanced" ng-click="playVideo(video.url)">
             Watch
         </button>
-        <button class="button button-balanced">
+        <button class="button button-balanced" ng-click="addVideoToFavourist(video)">
             Add Favourist
         </button>
     </ion-content>

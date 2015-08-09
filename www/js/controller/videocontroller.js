@@ -1,6 +1,7 @@
 var video = angular.module('video',[])
 
-    .controller('VideoCtrl',["$scope","$state","$stateParams","SessionManagerService","VideoService",function ($scope,$state,$stateParams,SessionManagerService,VideoService) {
+    .controller('VideoCtrl',["$scope","$state","$stateParams","SessionManagerService","VideoService","$ionicLoading",function ($scope,$state,$stateParams,SessionManagerService,VideoService,$ionicLoading) {
+
         var categoryID = $stateParams.categoryID;
         var isCategoryStoreInSession = SessionManagerService.isCategoryStoreInSession(categoryID);
         var value = {};
@@ -13,6 +14,13 @@ var video = angular.module('video',[])
             value.firstTime = true;
             value.skip = 0;
             value.total = 0;
+            $ionicLoading.show({
+                content: '<i class="icon ion-loading-c"></i>',
+                animation: 'fade-in',
+                showBackdrop: false,
+                maxWidth: 50,
+                showDelay: 1000
+            });
             setTimeout(function () {
             VideoService.getAllVideoByCategoryFirstTime(categoryID).then(
                 function (response) {
@@ -26,14 +34,22 @@ var video = angular.module('video',[])
                     value.skip = +5;
                     value.total = totalResponse;
                     SessionManagerService.storeVideoInSession(categoryID,value);
+                    $ionicLoading.hide();
                 }, function (data) {
                     alert("Server Error !!! Can not get video first time");
                 });
-            }, 3000);
+            }, 1000);
         }
 
         $scope.loadMoreVideo = function() {
             console.log("load more");
+            $scope.loading = $ionicLoading.show({
+                content: '<i class="icon ion-loading-c"></i>',
+                animation: 'fade-in',
+                showBackdrop: false,
+                maxWidth: 50,
+                showDelay: 1000
+            });
             setTimeout(function () {
             VideoService.getAllVideoByCategory(categoryID,value.skip).then(
                 function (response) {
@@ -45,19 +61,17 @@ var video = angular.module('video',[])
                     value.skip = value.skip + 5;
                     SessionManagerService.storeVideoInSession(categoryID,value);
                     $scope.$broadcast('scroll.infiniteScrollComplete');
+                    $ionicLoading.hide();
                 }, function (data) {
                    alert("server error");
+                    $ionicLoading.hide();
                 });
-            }, 3000);
+            }, 1000);
         };
 
         $scope.canWeLoadMoreVideo = function() {
            return (value.videos.length < value.total) ? true : false;
-          /*  if (value.videos.length == value.total) {
-                return false;
-            } else {
-                return true;
-            }*/
+
         }
 
 

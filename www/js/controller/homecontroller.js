@@ -20,19 +20,7 @@ var home = angular.module('home',[])
             console.log("DATA " + data);
         });
 
-        /*$scope.getAllVideoByCategoryFirstTime = function(categoryID) {
 
-            HomeService.getAllVideoByCategoryFirstTime(categoryID).then(
-             function (response) {
-                $scope.videos = response.data;
-                console.log("TYPE" + $scope.videos);
-                $ionicLoading.hide();
-                $state.go('app.listvideo', {'video': angular.toJson($scope.videos),'categoryID':categoryID});
-            }, function (data) {
-                // Handle error here
-            });
-
-        }*/
 
         $scope.displayVideos = function (categoryID) {
             $state.go('app.listvideo', {'categoryID':categoryID});

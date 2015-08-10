@@ -25,6 +25,10 @@ var home = angular.module('home', [])
             $state.go('app.listvideo', {'categoryID': categoryID});
         }
 
+
+    }])
+    .controller('NavigationCtrl', ['$scope', '$state', '$ionicLoading', 'HomeService', function ($scope, $state, $ionicLoading, HomeService) {
+
         $scope.exitApp = function () {
             alert("exit");
             ionic.Platform.exitApp();
@@ -32,7 +36,7 @@ var home = angular.module('home', [])
 
         $scope.gotoVideoFavorsit = function() {
             alert("here");
-          //  $state.go('app.favourist');
+            $state.go('app.favourist');
         }
 
     }])

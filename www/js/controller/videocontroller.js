@@ -109,6 +109,7 @@ var video = angular.module('video', [])
                 SessionManagerService.addVideoToFavourist(value);
             }
 
+
         }
     }])
 

@@ -1,4 +1,4 @@
-var videofavorist = angular.module('VideoFavorist', [])
+var videofavorist = angular.module('videofavorist', [])
 
     .controller('VideoFavoristCtrl', ["$scope", "$state", "$stateParams", "SessionManagerService", "$ionicLoading", function ($scope, $state, $stateParams, SessionManagerService, $ionicLoading) {
 
@@ -12,5 +12,6 @@ var videofavorist = angular.module('VideoFavorist', [])
         $scope.playFavoristVideo = function(videoID) {
             YoutubeVideoPlayer.openVideo(videoID);
         }
+
 
     }])

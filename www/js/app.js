@@ -23,7 +23,8 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule'])
             .state('app', {
                 url: "/app",
                 abstract: true,
-                templateUrl: "templates/menu.html"
+                templateUrl: "templates/menu.html",
+                cache: false
             })
             .state('app.home', {
                 url: "/home",
@@ -97,17 +98,18 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule'])
 
 
             .state('app.favourist', {
+                cache: false,
                 url: "/favourist",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/favourist.html"
-
+                        templateUrl: "templates/favourist.html",
+                        controller: 'VideoFavoristCtrl'
                     }
                 },
                 resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
                     loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                         return $ocLazyLoad.load([{
-                            name: "VideoFavorist",
+                            name: "videofavorist",
                             files: ['js/controller/videofavoristcontroller.js']
                         },
                             {

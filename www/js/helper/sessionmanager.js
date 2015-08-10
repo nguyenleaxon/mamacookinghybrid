@@ -25,12 +25,26 @@ angular.module("sessionmanager", [])
         this.addVideoToFavourist = function (value) {
             var video = {};
             video.videos = value.videos;
-            localStorageService.set("favorist", video);
+            localStorageService.cookie.set('favorist',video);
+           // localStorageService.set("favorist", video);
         }
 
         this.getAllVideoFromFavourist = function () {
-            return localStorageService.get("favorist");
+            return localStorageService.cookie.get("favorist");
+           // return localStorageService.get("favorist");
         }
+
+        this.removeVideoFromFavourist = function(video) {
+            var value = localStorageService.cookie.get("favorist");
+            var newVideos = value.videos.remove(function (el) {
+                    return el.id === video.id;
+                });
+            value.videos = newVideos;
+            localStorageService.cookie.set('favorist',value);
+            return localStorageService.cookie.get("favorist");
+        }
+
+
 
     }
 )

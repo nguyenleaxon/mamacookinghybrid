@@ -13,5 +13,9 @@ var videofavorist = angular.module('videofavorist', [])
             YoutubeVideoPlayer.openVideo(videoID);
         }
 
+        $scope.removeVideoFromFavorist = function(video) {
+         var videoFromFavorist =   SessionManagerService.removeVideoFromFavourist(video);
+            $scope._videos = videoFromFavorist.videos;
+        }
 
     }])

@@ -137,7 +137,14 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule'])
                 }
             })
 
-
+         .state('app.info', {
+            url: "/information",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/information.html"
+                }
+            }
+        })
         // if none of the above states are matched, use this as the fallback
 
         $urlRouterProvider.otherwise('/app/home');

@@ -27,16 +27,3 @@ var home = angular.module('home', [])
 
 
     }])
-    .controller('NavigationCtrl', ['$scope', '$state', '$ionicLoading', 'HomeService', function ($scope, $state, $ionicLoading, HomeService) {
-
-        $scope.exitApp = function () {
-            alert("exit");
-            ionic.Platform.exitApp();
-        }
-
-        $scope.gotoVideoFavorsit = function() {
-            alert("here");
-            $state.go('app.favourist');
-        }
-
-    }])

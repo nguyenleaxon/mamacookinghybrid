@@ -24,4 +24,8 @@ var search = angular.module('search', [])
 
         }
 
+        $scope.playVideo = function(videoID) {
+            YoutubeVideoPlayer.openVideo(videoID);
+        }
+
     })

@@ -7,3 +7,13 @@
     flex: none;
     width: 25%;
 }
+
+.button.button-icon.input-button {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    color: #bbb;
+}
+.full-width {
+    width: 100%;
+}

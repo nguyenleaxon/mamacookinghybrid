@@ -88,11 +88,26 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule'])
             })
 
             .state('app.search', {
+                cache:false,
                 url: "/search",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/search.html"
+                        templateUrl: "templates/search.html",
+                        controller: 'SearchCtrl'
                     }
+                },
+                resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([{
+                            name: "search",
+                            files: ['js/controller/searchcontroller.js']
+                        },{
+                            name: "search",
+                            files: ['js/service/searchservice.js']
+                        }
+
+                        ]);
+                    }]
                 }
             })
 

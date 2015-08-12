@@ -1,11 +1,11 @@
 <ion-view view-title="Videos">
     <ion-content  overflow-scroll="false" >
         <ion-list>
-            <ion-item collection-repeat="video in _videos" class="item-thumbnail-left">
+            <ion-item  collection-repeat="video in _videos" class="item-thumbnail-left">
                 <img ng-src="http:{{video.image}}">
                 <h2>{{video.name}}</h2>
-                <button class="button button-balanced" ng-click="gotoShowVideoScreen(video)">
-                   Watch it
+               <button class="ion-android-favorite-outline button button-clear button-positive" ng-click="gotoShowVideoScreen(video)">
+                   Chi Tiết
                 </button>
                <!-- <div ng-click="playVideo(video.name)"> Click To See </div>-->
             </ion-item>

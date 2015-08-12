@@ -48,5 +48,45 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.connectivity.monitor": {
+        "source": {
+            "type": "registry",
+            "id": "com.connectivity.monitor"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "com.google.play.services": {
+        "source": {
+            "type": "registry",
+            "id": "com.google.play.services"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "com.rjfun.cordova.plugin.admob": {
+        "source": {
+            "type": "registry",
+            "id": "com.rjfun.cordova.plugin.admob"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.google.admobsdk": {
+        "source": {
+            "type": "registry",
+            "id": "com.google.admobsdk"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "com.google.playservices": {
+        "source": {
+            "type": "registry",
+            "id": "com.google.playservices@19.0.0"
+        },
+        "is_top_level": false,
+        "variables": {}
     }
 }

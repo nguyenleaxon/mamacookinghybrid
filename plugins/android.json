@@ -7,24 +7,6 @@
         "files": {
             "res/xml/config.xml": {
                 "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"com.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        }
-                    ],
                     "widget": [
                         {
                             "xml": "<feature name=\"YoutubeVideoPlayer\"><param name=\"android-package\" value=\"com.bunkerpalace.cordova.YoutubeVideoPlayer\" /></feature>",
@@ -45,6 +27,24 @@
                         {
                             "xml": "<activity android:name=\"com.keyes.youtube.OpenYouTubePlayerActivity\" android:screenOrientation=\"landscape\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"@integer/google_play_services_version\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize\" android:name=\"com.google.android.gms.ads.AdActivity\" android:theme=\"@android:style/Theme.Translucent\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -52,24 +52,16 @@
         }
     },
     "installed_plugins": {
-        "com.ionic.keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.myapp401052"
-        },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.myapp401052"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.myapp401052"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.myapp401052"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.myapp401052"
-        },
         "com.bunkerpalace.cordova.YoutubeVideoPlayer": {
+            "PACKAGE_NAME": "com.ionicframework.myapp401052"
+        },
+        "com.google.admobsdk": {
             "PACKAGE_NAME": "com.ionicframework.myapp401052"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "com.google.playservices": {
+            "PACKAGE_NAME": "com.ionicframework.myapp401052"
+        }
+    }
 }

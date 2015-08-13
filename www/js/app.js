@@ -1,4 +1,4 @@
-angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule'])
+angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngCordova'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {

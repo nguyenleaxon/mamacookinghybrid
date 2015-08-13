@@ -90,7 +90,7 @@ var video = angular.module('video', [])
 
 
     }])
-    .controller('VideoDetailsCtrl', ["$scope", "$state", "$stateParams", "SessionManagerService", "VideoService", function ($scope, $state, $stateParams, SessionManagerService, VideoService) {
+    .controller('VideoDetailsCtrl', ["$scope", "$state", "$stateParams", "SessionManagerService", "VideoService","$cordovaSocialSharing", function ($scope, $state, $stateParams, SessionManagerService, VideoService,$cordovaSocialSharing) {
         $scope.video = angular.fromJson($stateParams.video);
         $scope.playVideo = function (url) {
             YoutubeVideoPlayer.openVideo(url);
@@ -108,9 +108,19 @@ var video = angular.module('video', [])
                 value.videos.push(video);
                 SessionManagerService.addVideoToFavourist(value);
             }
+        }
 
+        $scope.shareVideoToFacebook = function(message,image,link) {
+
+            $cordovaSocialSharing.shareViaFacebook(message, image,link)
+                .then(function(result) {
+                    alert("Done");
+                }, function(err) {
+                    alert("False");
+                });
 
         }
+
     }])
 
 

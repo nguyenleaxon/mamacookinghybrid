@@ -15,15 +15,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-whitelist.git",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-splashscreen": {
         "source": {
             "type": "registry",
@@ -57,28 +48,21 @@
         "is_top_level": false,
         "variables": {}
     },
-    "com.google.play.services": {
+    "nl.x-services.plugins.socialsharing": {
         "source": {
-            "type": "registry",
-            "id": "com.google.play.services"
-        },
-        "is_top_level": false,
-        "variables": {}
-    },
-    "com.rjfun.cordova.plugin.admob": {
-        "source": {
-            "type": "registry",
-            "id": "com.rjfun.cordova.plugin.admob"
+            "type": "git",
+            "url": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
+            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}
     },
-    "com.google.admobsdk": {
+    "cordova-plugin-googleplayservices": {
         "source": {
             "type": "registry",
-            "id": "com.google.admobsdk"
+            "id": "cordova-plugin-googleplayservices"
         },
-        "is_top_level": false,
+        "is_top_level": true,
         "variables": {}
     },
     "com.google.playservices": {
@@ -89,11 +73,10 @@
         "is_top_level": false,
         "variables": {}
     },
-    "nl.x-services.plugins.socialsharing": {
+    "cordova-plugin-whitelist": {
         "source": {
-            "type": "git",
-            "url": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
-            "subdir": "."
+            "type": "registry",
+            "id": "cordova-plugin-whitelist"
         },
         "is_top_level": true,
         "variables": {}

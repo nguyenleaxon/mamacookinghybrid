@@ -112,7 +112,7 @@ var video = angular.module('video', [])
 
         $scope.shareVideoToFacebook = function(message,image,link) {
 
-            $cordovaSocialSharing.shareViaFacebook(message, image,link)
+            $cordovaSocialSharing.shareViaFacebook(message,null,link)
                 .then(function(result) {
                     alert("Done");
                 }, function(err) {

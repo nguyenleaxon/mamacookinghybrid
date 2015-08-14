@@ -8,7 +8,7 @@ search.service('SearchService', function ($http, $log) {
         requestVideo.videoName = videoName;
         var promise = $http({
             method: 'POST',
-            url: 'http://localhost:3000/findAllVideoByName',
+            url: 'http://192.168.1.5:3000/findAllVideoByName',
             data: requestVideo
         }).success(function (data) {
 

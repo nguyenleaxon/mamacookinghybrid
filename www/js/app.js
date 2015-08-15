@@ -30,7 +30,7 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngC
                 autoShow: true
             };
             AdMob.setOptions( defaultOptions );*/
-            alert(admobid.banner);
+
             AdMob.createBanner({
                 adId: admobid.banner,
                 position: AdMob.AD_POSITION.BOTTOM_CENTER,

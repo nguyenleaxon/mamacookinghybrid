@@ -57,20 +57,12 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-googleplayservices": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-googleplayservices"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "com.google.playservices": {
         "source": {
             "type": "registry",
-            "id": "com.google.playservices@19.0.0"
+            "id": "com.google.playservices"
         },
-        "is_top_level": false,
+        "is_top_level": true,
         "variables": {}
     },
     "cordova-plugin-whitelist": {
@@ -79,6 +71,30 @@
             "id": "cordova-plugin-whitelist"
         },
         "is_top_level": true,
+        "variables": {}
+    },
+    "com.google.admobsdk": {
+        "source": {
+            "type": "registry",
+            "id": "com.google.admobsdk"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-admobpro": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-admobpro"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-extension": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-extension"
+        },
+        "is_top_level": false,
         "variables": {}
     }
 }

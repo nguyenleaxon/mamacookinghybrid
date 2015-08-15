@@ -36,6 +36,7 @@ var video = angular.module('video', [])
                         SessionManagerService.storeVideoInSession(categoryID, value);
                         $ionicLoading.hide();
                     }, function (data) {
+                        $ionicLoading.hide();
                         alert("Server Error !!! Can not get video first time");
                     });
             }, 1000);

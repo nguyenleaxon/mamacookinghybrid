@@ -18,7 +18,9 @@ var search = angular.module('search', [])
                         $scope._videos = response.data;
                         $ionicLoading.hide();
                     }, function (data) {
+                        $ionicLoading.hide();
                         alert("Server Error !!! Can not get video first time");
+
                     });
             }, 1000);
 

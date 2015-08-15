@@ -90,7 +90,7 @@ var video = angular.module('video', [])
 
 
     }])
-    .controller('VideoDetailsCtrl', ["$scope", "$state", "$stateParams", "SessionManagerService", "VideoService","$cordovaSocialSharing", function ($scope, $state, $stateParams, SessionManagerService, VideoService,$cordovaSocialSharing) {
+    .controller('VideoDetailsCtrl', ["$scope", "$state", "$stateParams", "SessionManagerService", "VideoService","$cordovaSocialSharing","$ionicLoading", function ($scope, $state, $stateParams, SessionManagerService, VideoService,$cordovaSocialSharing,$ionicLoading) {
         $scope.video = angular.fromJson($stateParams.video);
         $scope.playVideo = function (url) {
             YoutubeVideoPlayer.openVideo(url);
@@ -111,14 +111,21 @@ var video = angular.module('video', [])
         }
 
         $scope.shareVideoToFacebook = function(message,image,link) {
-
+            $scope.loading = $ionicLoading.show({
+                content: '<i class="icon ion-loading-c"></i>',
+                animation: 'fade-in',
+                showBackdrop: false,
+                maxWidth: 50,
+                showDelay: 1000
+            });
+            setTimeout(function () {
             $cordovaSocialSharing.shareViaFacebook(message,null,link)
                 .then(function(result) {
-                    alert("Done");
+                    $ionicLoading.hide();
                 }, function(err) {
-                    alert("False");
+                    $ionicLoading.hide();
                 });
-
+            }, 1000);
         }
 
     }])

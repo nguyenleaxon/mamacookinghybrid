@@ -179,6 +179,7 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngC
             })
 
          .state('app.info', {
+            cache: false,
             url: "/information",
             views: {
                 'menuContent': {

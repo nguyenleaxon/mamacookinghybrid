@@ -9,6 +9,7 @@ var information = angular.module('information', [])
         cordova.plugins.email.addAlias('gmail', 'com.google.android.gm');
         $scope.subject = "";
         $scope.body = ""
+
         $scope.sendEmail = function(subject,body) {
             var email = {
                 app: 'gmail',
@@ -18,7 +19,10 @@ var information = angular.module('information', [])
                 isHtml: true
             };
             $cordovaEmailComposer.open(email).then(null, function () {
-                alert("Cám ơn bạn đã gửi email");
+                $scope.subject = "";
+                $scope.body = ""
+
+
             });
         }
 

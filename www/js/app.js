@@ -1,6 +1,7 @@
+var db = null;
 angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngCordova'])
 
-    .run(function ($ionicPlatform) {
+    .run(function ($ionicPlatform,$cordovaSQLite) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -11,6 +12,16 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngC
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+
+           db = $cordovaSQLite.openDB({name:'menauan'});
+
+          //  db = window.sqlitePlugin.openDatabase({name: 'menauan.db', location: 1});
+
+          $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS video (id integer primary key,videoId text,videoname text,url text,image text)");
+
+
+
+
             var admobid = {};
             // select the right Ad Id according to platform
             if (/(android)/i.test(navigator.userAgent)) {

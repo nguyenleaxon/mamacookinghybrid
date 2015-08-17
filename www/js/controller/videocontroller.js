@@ -91,7 +91,7 @@ var video = angular.module('video', [])
 
 
     }])
-    .controller('VideoDetailsCtrl', ["$scope", "$state", "$stateParams", "SessionManagerService", "VideoService","$cordovaSocialSharing","$ionicLoading", function ($scope, $state, $stateParams, SessionManagerService, VideoService,$cordovaSocialSharing,$ionicLoading) {
+    .controller('VideoDetailsCtrl', ["$scope", "$state", "$stateParams", "SessionManagerService", "VideoService","$cordovaSocialSharing","$ionicLoading","$cordovaSQLite", function ($scope, $state, $stateParams, SessionManagerService, VideoService,$cordovaSocialSharing,$ionicLoading,$cordovaSQLite) {
         $scope.video = angular.fromJson($stateParams.video);
         $scope.playVideo = function (url) {
             YoutubeVideoPlayer.openVideo(url);
@@ -109,6 +109,18 @@ var video = angular.module('video', [])
                 value.videos.push(video);
                 SessionManagerService.addVideoToFavourist(value);
             }
+        }
+
+
+
+        $scope.insertVideo = function(videoId,videoname,url,image) {
+            alert("VideoID" + videoId + "Name" + videoname + "URL" + url);
+            var query = "INSERT INTO video (videoId,videoname,url,image) VALUES (?,?,?,?)";
+            $cordovaSQLite.execute(db, query, [videoId,videoname,url,image]).then(function(res) {
+                alert("Saved Database")
+            }, function (err) {
+                console.error(err);
+            });
         }
 
         $scope.shareVideoToFacebook = function(message,image,link) {

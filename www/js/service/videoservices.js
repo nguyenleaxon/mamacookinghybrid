@@ -7,7 +7,7 @@ video.service('VideoService', function ($http, $log) {
         console.log(requestVideo);
         var promise = $http({
             method: 'POST',
-            url: 'http://localhost:3000/getAllVideoByCategory',
+            url: 'http://10.12.1.12:3000/getAllVideoByCategory',
             data: requestVideo
         }).success(function (data) {
 
@@ -26,7 +26,7 @@ video.service('VideoService', function ($http, $log) {
         console.log(requestVideo);
         var promise = $http({
             method: 'POST',
-            url: 'http://192.168.1.5:3000/getAllVideoFirstTime',
+            url: 'http://10.12.1.12:3000/getAllVideoFirstTime',
             data: requestVideo
         }).success(function (data) {
 

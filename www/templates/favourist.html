@@ -3,15 +3,20 @@
         <ion-list>
             <ion-item collection-repeat="video in _videos" class="item-thumbnail-left">
                 <img ng-src="http:{{video.image}}">
-                <h2>{{video.name}}</h2>
+                <h2>Video : {{video.videoname}}</h2>
                 <button class="button button-balanced" ng-click="playFavoristVideo(video.url)">
                     Watch it
                 </button>
-                <button class="button button-balanced" ng-click="removeVideoFromFavorist(video)">
+
+                <button class="button button-balanced" ng-click="removeVideoFromDB($index,video.id)">
                     Remove
                 </button>
+
                 <!-- <div ng-click="playVideo(video.name)"> Click To See </div>-->
             </ion-item>
         </ion-list>
+        <button class="button button-balanced" ng-click="deleteDB()">
+            Delete DB
+        </button>
     </ion-content>
 </ion-view>

@@ -37,6 +37,10 @@
                         {
                             "xml": "<feature name=\"SocialSharing\"><param name=\"android-package\" value=\"nl.xservices.plugins.SocialSharing\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SQLitePlugin\"><param name=\"android-package\" value=\"io.liteglue.SQLitePlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -100,6 +104,9 @@
             "PACKAGE_NAME": "com.ionicframework.myapp401052"
         },
         "nl.x-services.plugins.socialsharing": {
+            "PACKAGE_NAME": "com.ionicframework.myapp401052"
+        },
+        "io.litehelpers.cordova.sqlite": {
             "PACKAGE_NAME": "com.ionicframework.myapp401052"
         }
     },

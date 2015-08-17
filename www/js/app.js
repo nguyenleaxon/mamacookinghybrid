@@ -182,9 +182,19 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngC
             url: "/information",
             views: {
                 'menuContent': {
-                    templateUrl: "templates/information.html"
+                    templateUrl: "templates/information.html",
+                    controller: 'InformationCtrl'
                 }
-            }
+            },
+                resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+                    loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([{
+                            name: "information",
+                            files: ['js/controller/informationcontroller.js']
+                        }
+                        ]);
+                    }]
+                }
         })
         // if none of the above states are matched, use this as the fallback
 

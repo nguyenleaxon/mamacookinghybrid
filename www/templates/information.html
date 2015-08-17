@@ -8,19 +8,19 @@
             <div class="col">
                 <div class="list">
                     <label class="item item-input">
-                        <input type="text" placeholder="Điền email của bạn">
+                        <input type="text" ng-model="subject" placeholder="Chủ Đề">
                     </label>
                     <label class="item item-input">
-                        <textarea rows="5" placeholder="Nội Dung"></textarea>
+                        <textarea rows="5" ng-model="body" placeholder="Nội Dung"></textarea>
                     </label>
                 </div>
-                <button class="button button-full button-positive">
+                <button class="button button-full button-positive" ng-click="sendEmail(subject,body)">
                     Click Gửi Email
                 </button>
             </div>
             <div class="col" style="text-align: center">
                  <div> Nhóm Phát Triển : GotoAgileVN Company </div>
-                 <div> Copy Right@2015</div>
+                 <div> Version 1.0.0 Beta - Copy Right@2015</div>
             </div>
         </div>
     </ion-content>

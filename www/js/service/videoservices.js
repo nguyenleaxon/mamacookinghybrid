@@ -1,4 +1,4 @@
-video.service('VideoService', function ($http, $log) {
+video.service('VideoService',['$http','$log','ApiEndpoint',function ($http,$log,ApiEndpoint) {
 
     this.getAllVideoByCategory = function (categoryID, skip) {
         var requestVideo = {};
@@ -7,7 +7,7 @@ video.service('VideoService', function ($http, $log) {
         console.log(requestVideo);
         var promise = $http({
             method: 'POST',
-            url: 'http://10.12.1.12:3000/getAllVideoByCategory',
+            url: ApiEndpoint.url+'getAllVideoByCategory',
             data: requestVideo
         }).success(function (data) {
 
@@ -26,7 +26,7 @@ video.service('VideoService', function ($http, $log) {
         console.log(requestVideo);
         var promise = $http({
             method: 'POST',
-            url: 'http://10.12.1.12:3000/getAllVideoFirstTime',
+            url: ApiEndpoint.url+'getAllVideoFirstTime',
             data: requestVideo
         }).success(function (data) {
 
@@ -36,4 +36,4 @@ video.service('VideoService', function ($http, $log) {
         });
         return promise;
     }
-})
+}])

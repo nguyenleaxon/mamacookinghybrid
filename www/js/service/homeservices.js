@@ -1,9 +1,9 @@
-home.service('HomeService', ['$http', '$log', function ($http, $log) {
+home.service('HomeService', ['$http', '$log','ApiEndpoint', function ($http, $log,ApiEndpoint) {
 
     this.getAllCategories = function () {
         var promise = $http({
             method: 'POST',
-            url: 'http://10.12.1.12:3000/categories'
+            url: ApiEndpoint.url+'categories'
         }).success(function (data) {
             $log.log(data);
         }).error(function (data, status, headers, config) {

@@ -1,4 +1,4 @@
-search.service('SearchService', function ($http, $log) {
+search.service('SearchService',['$http','$log','ApiEndpoint',function ($http,$log,ApiEndpoint) {
     this.getAllVideoByName = function (videoName) {
         if (videoName === undefined) {
             videoName = "bo";
@@ -8,7 +8,7 @@ search.service('SearchService', function ($http, $log) {
         requestVideo.videoName = videoName;
         var promise = $http({
             method: 'POST',
-            url: 'http://10.12.1.12:3000/findAllVideoByName',
+            url: ApiEndpoint.url+'findAllVideoByName',
             data: requestVideo
         }).success(function (data) {
 
@@ -18,4 +18,4 @@ search.service('SearchService', function ($http, $log) {
         });
         return promise;
     }
-})
+}])

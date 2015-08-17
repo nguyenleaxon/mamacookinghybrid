@@ -2,7 +2,7 @@
     <ion-content  overflow-scroll="false" >
         <ion-list>
             <ion-item  collection-repeat="video in _videos" class="item-thumbnail-left">
-                <img ng-src="http:{{video.image}}">
+                <img ng-src="http:{{video.image}}" ng-click="gotoShowVideoScreen(video)" >
                 <h2>{{video.name}}</h2>
                <button class="ion-android-favorite-outline button button-clear button-positive" ng-click="gotoShowVideoScreen(video)">
                    Click Xem Video

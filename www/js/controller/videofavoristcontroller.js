@@ -9,7 +9,7 @@ var videofavorist = angular.module('videofavorist', [])
                    $scope._videos.push(res.rows.item(i));
                 }
             } else {
-                alert("No Record Found");
+                alert("Không tìm thấy kết quả nào ");
             }
         }, function (err) {
             console.error(err);
@@ -29,7 +29,7 @@ var videofavorist = angular.module('videofavorist', [])
            $cordovaSQLite.execute(db, query,[id]).then(function(res) {
                $scope._videos.splice(index,1);
            }, function (err) {
-                console.error(err);
+               alert("Đã xảy ra lỗi kết nối với máy chủ")
             });
         }
 

@@ -64,7 +64,7 @@ var video = angular.module('video', [])
                         $scope.$broadcast('scroll.infiniteScrollComplete');
                         $ionicLoading.hide();
                     }, function (data) {
-                        alert("server error");
+                        alert("Đã xảy ra lỗi kết nối với máy chủ");
                         $ionicLoading.hide();
                     });
             }, 1000);
@@ -114,12 +114,12 @@ var video = angular.module('video', [])
 
 
         $scope.insertVideo = function(videoId,videoname,url,image) {
-            alert("VideoID" + videoId + "Name" + videoname + "URL" + url);
+
             var query = "INSERT INTO video (videoId,videoname,url,image) VALUES (?,?,?,?)";
             $cordovaSQLite.execute(db, query, [videoId,videoname,url,image]).then(function(res) {
-                alert("Saved Database")
+                alert("Đã lưu video vào mục yêu thích")
             }, function (err) {
-                console.error(err);
+                alert("Đã xảy ra lỗi kết nối với máy chủ")
             });
         }
 

@@ -19,7 +19,7 @@ var search = angular.module('search', [])
                         $ionicLoading.hide();
                     }, function (data) {
                         $ionicLoading.hide();
-                        alert("Server Error !!! Can not get video first time");
+                        alert("Không tìm thấy kết quả nào");
 
                     });
             }, 1000);

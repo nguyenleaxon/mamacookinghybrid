@@ -15,7 +15,7 @@ var home = angular.module('home', [])
                 $scope.categories = response.data;
                 $ionicLoading.hide();
             }, function (data) {
-                alert("Connection Fail")
+                alert("Đã xảy ra lỗi kết nối với máy chủ");
                 $ionicLoading.hide();
                 console.log("DATA " + data);
             });

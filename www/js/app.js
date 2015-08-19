@@ -1,7 +1,7 @@
 var db = null;
 angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngCordova'])
     .constant('ApiEndpoint', {
-        url: 'http://192.168.1.5:3000/'
+        url: 'http://10.12.1.12:3000/'
     })
     .run(function ($ionicPlatform,$cordovaSQLite) {
         $ionicPlatform.ready(function () {

@@ -1,7 +1,7 @@
 var db = null;
 angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngCordova'])
     .constant('ApiEndpoint', {
-        url: 'http://192.168.1.5:3000/'
+        url: 'http://128.199.101.93:3000/'
     })
     .run(function ($ionicPlatform,$cordovaSQLite) {
         $ionicPlatform.ready(function () {
@@ -49,7 +49,7 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngC
                 position: AdMob.AD_POSITION.BOTTOM_CENTER,
                 autoShow: true,
                 isTesting: true,
-                overlap:true
+                overlap:false
             });
 
         });

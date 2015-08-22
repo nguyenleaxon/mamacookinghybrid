@@ -1,5 +1,5 @@
 var search = angular.module('search', [])
-    .controller('SearchCtrl', function ($scope, $state,SearchService,$ionicLoading,$ionicPlatform) {
+    .controller('SearchCtrl', function ($scope, $state,SearchService,$ionicLoading,$ionicPlatform,$cordovaSQLite) {
         $scope.clearSearch = function() {
             $scope.search = '';
         };
@@ -30,6 +30,14 @@ var search = angular.module('search', [])
             YoutubeVideoPlayer.openVideo(videoID);
         }
 
+        $scope.insertVideoFromSearch = function(videoId,videoname,url,image) {
 
+            var query = "INSERT INTO video (videoId,videoname,url,image) VALUES (?,?,?,?)";
+            $cordovaSQLite.execute(db, query, [videoId,videoname,url,image]).then(function(res) {
+                alert("Đã lưu video vào mục yêu thích")
+            }, function (err) {
+                alert("Đã xảy ra lỗi kết nối với máy chủ")
+            });
+        }
 
     })

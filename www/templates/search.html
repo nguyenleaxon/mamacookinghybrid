@@ -1,4 +1,4 @@
-<ion-view view-title="Search">
+<ion-view view-title="Tìm Kiếm Video">
     <ion-header-bar class="bar-light bar-subheader">
         <input type="search"
                placeholder="vi du nhap vao tu khoa la bo"
@@ -15,10 +15,14 @@
       </button>
       <ion-list>
           <ion-item collection-repeat="video in _videos" class="item-thumbnail-left">
-              <img ng-src="http:{{video.image}}">
+              <img ng-src="http:{{video.image}}" ng-click="playVideo(video.url)">
               <h2>{{video.name}}</h2>
-              <button class="button button-balanced" ng-click="playVideo(video.url)">
-                  Watch it
+
+              <button class="icon ion-social-youtube-outline" ng-click="playVideo(video.url)">
+                  Xem
+              </button>
+              <button class="icon ion-star" ng-click="insertVideoFromSearch(video.id,video.name,video.url,video.image)">
+                  Yêu thích
               </button>
 
           </ion-item>

@@ -1,5 +1,5 @@
 var search = angular.module('search', [])
-    .controller('SearchCtrl', function ($scope, $state,SearchService,$ionicLoading) {
+    .controller('SearchCtrl', function ($scope, $state,SearchService,$ionicLoading,$ionicPlatform) {
         $scope.clearSearch = function() {
             $scope.search = '';
         };
@@ -29,5 +29,7 @@ var search = angular.module('search', [])
         $scope.playVideo = function(videoID) {
             YoutubeVideoPlayer.openVideo(videoID);
         }
+
+
 
     })

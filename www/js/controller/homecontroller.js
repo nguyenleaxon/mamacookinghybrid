@@ -1,6 +1,6 @@
 var home = angular.module('home', [])
 
-    .controller('HomeCtrl', ['$scope', '$state', '$ionicLoading', 'HomeService', function ($scope, $state, $ionicLoading, HomeService) {
+    .controller('HomeCtrl', ['$scope', '$state', '$ionicLoading','$ionicPlatform','HomeService', function ($scope, $state, $ionicLoading,$ionicPlatform, HomeService) {
 
         $scope.loading = $ionicLoading.show({
             content: '<i class="icon ion-loading-c"></i>',
@@ -25,5 +25,14 @@ var home = angular.module('home', [])
             $state.go('app.listvideo', {'categoryID': categoryID});
         }
 
+        var callback = function(){
+           if ($state.current.name==="app.home") {
+               navigator.app.exitApp();
+           }else {
+               navigator.app.backHistory();
+           }
+        };
+        var deregister = $ionicPlatform.registerBackButtonAction(callback, 100);
+        $scope.$on('$destroy', deregister)
 
     }])

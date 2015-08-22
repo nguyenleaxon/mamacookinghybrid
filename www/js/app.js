@@ -3,7 +3,7 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngC
     .constant('ApiEndpoint', {
         url: 'http://128.199.101.93:3000/'
     })
-    .run(function ($ionicPlatform,$cordovaSQLite) {
+    .run(function ($ionicPlatform,$cordovaSQLite,$state) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -44,15 +44,22 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngC
             };
             AdMob.setOptions( defaultOptions );*/
 
-            AdMob.createBanner({
+          /*  AdMob.createBanner({
                 adId: admobid.banner,
                 position: AdMob.AD_POSITION.BOTTOM_CENTER,
                 autoShow: true,
                 isTesting: true,
                 overlap:false
-            });
+            });*/
+
+
+
 
         });
+
+
+
+
     })
 
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $ocLazyLoadProvider, localStorageServiceProvider) {

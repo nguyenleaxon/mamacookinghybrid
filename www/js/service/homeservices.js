@@ -5,7 +5,7 @@ home.service('HomeService', ['$http', '$log','ApiEndpoint', function ($http, $lo
             method: 'POST',
             url: ApiEndpoint.url+'categories'
         }).success(function (data) {
-            $log.log(data);
+          //  $log.log(data);
         }).error(function (data, status, headers, config) {
             $log.log(data);
         });

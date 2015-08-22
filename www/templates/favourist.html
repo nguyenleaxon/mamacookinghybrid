@@ -1,16 +1,23 @@
-<ion-view view-title="Favorist" >
+<ion-view view-title="Videos yêu thích" >
     <ion-content  overflow-scroll="true">
         <ion-list>
             <ion-item collection-repeat="video in _videos" class="item-thumbnail-left">
-                <img ng-src="http:{{video.image}}">
+                <img ng-src="http:{{video.image}}"  ng-click="playFavoristVideo(video.url)">
                 <h2>Video : {{video.videoname}}</h2>
-                <button class="button button-balanced" ng-click="playFavoristVideo(video.url)">
+              <!--  <button class="button button-balanced" ng-click="playFavoristVideo(video.url)">
                     Watch it
+                </button>-->
+                <button class="icon ion-social-youtube-outline" ng-click="playFavoristVideo(video.url)">
+                    Xem
                 </button>
 
-                <button class="button button-balanced" ng-click="removeVideoFromDB($index,video.id)">
-                    Remove
+                <button class="icon ion-ios-close-outline" ng-click="removeVideoFromDB($index,video.id)">
+                    Xóa Video
                 </button>
+
+               <!-- <button class="button button-balanced" ng-click="removeVideoFromDB($index,video.id)">
+                    Remove
+                </button>-->
 
                 <!-- <div ng-click="playVideo(video.name)"> Click To See </div>-->
             </ion-item>

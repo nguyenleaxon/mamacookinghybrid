@@ -31,8 +31,8 @@ video.service('VideoService',['$http','$log','ApiEndpoint',function ($http,$log,
         }).success(function (data) {
 
         }).error(function (data, status, headers, config) {
-            $log.log(data);
-            alert("loi")
+          //  $log.log(data);
+            alert("Đã xảy ra lỗi kết nối với máy chủ")
         });
         return promise;
     }

@@ -26,31 +26,30 @@ angular.module('mamacooking', ['ionic', 'oc.lazyLoad', 'LocalStorageModule','ngC
 
             var admobid = {};
             // select the right Ad Id according to platform
-            if (/(android)/i.test(navigator.userAgent)) {
+          /*  if (/(android)/i.test(navigator.userAgent)) {
                 admobid = { // for Android
                     banner: 'ca-app-pub-6869992474017983/9375997553',
                     interstitial: 'ca-app-pub-6869992474017983/1657046752'
                 };
-            };
+            };*/
 
-           /* var defaultOptions = {
-                bannerId: admobid.banner,
-                interstitialId: admobid.interstitial,
+        /*    var defaultOptions = {
+                bannerId: 'ca-app-pub-7732165171285075/9145238546',
                 adSize: 'SMART_BANNER',
                 position: AdMob.AD_POSITION.BOTTOM_CENTER,
                 bgColor: '#30619D', // color name, or '#RRGGBB'
-                isTesting: true,
+                isTesting: false,
                 autoShow: true
             };
             AdMob.setOptions( defaultOptions );*/
 
-          /*  AdMob.createBanner({
-                adId: admobid.banner,
+            AdMob.createBanner({
+                adId: 'ca-app-pub-7732165171285075/9145238546',
                 position: AdMob.AD_POSITION.BOTTOM_CENTER,
                 autoShow: true,
-                isTesting: true,
+                isTesting: false,
                 overlap:false
-            });*/
+            });
 
 
 
